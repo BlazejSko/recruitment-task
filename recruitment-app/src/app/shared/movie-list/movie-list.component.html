@@ -1,0 +1,36 @@
+<mat-form-field>
+    <mat-label>Search Title</mat-label>
+    <input matInput [(ngModel)]="searchedText">
+</mat-form-field>
+
+<button mat-raised-button (click)="show()">Show</button>
+
+
+<table mat-table [dataSource]="movieList.Search" class="mat-elevation-z8">
+    
+    <ng-container matColumnDef="Title">
+      <th mat-header-cell *matHeaderCellDef> Title </th>
+      <td mat-cell *matCellDef="let movie" routerLinkActive="active" routerLink="{{movie.imdbID}}"> {{movie.Title}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Year">
+        <th mat-header-cell *matHeaderCellDef> Year </th>
+        <td mat-cell *matCellDef="let movie" routerLinkActive="active" routerLink="{{movie.imdbID}}"> {{movie.Year}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Poster">
+        <th mat-header-cell *matHeaderCellDef> Poster </th>
+        <td mat-cell *matCellDef="let movie" routerLinkActive="active" routerLink="{{movie.imdbID}}"> <img src="{{movie.Poster}}" alt=""></td>
+      </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+<mat-paginator [length]="numberOfMovies"
+              [pageSize]="10"
+              [pageSizeOptions]="[10]"
+              aria-label="Select page"
+              (page)="onPageChange($event)">
+</mat-paginator>
+<hr>
+<router-outlet></router-outlet>

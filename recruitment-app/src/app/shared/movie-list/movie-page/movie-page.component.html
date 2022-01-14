@@ -1,0 +1,30 @@
+<div class="content-container">
+    <div class="content">
+        <mat-card class="content">
+            <h2>{{movie.Title}}</h2>
+            <div class="posterDetails">
+                <img src="{{movie.Poster}}">
+
+                <div class="spacer"></div>
+                
+                <div class="details">
+                    <span>Released <p class="boldDetails">{{movie.Released}}</p></span>
+                    <span>Directed by <p class="boldDetails">{{movie.Director}}</p></span>
+                    <span>Genre <p class="boldDetails">{{movie.Genre}}</p></span>
+                    <span>Production <p class="boldDetails">{{movie.Production}}</p></span>
+                    <span>Runtime <p class="boldDetails">{{movie.Runtime}}</p></span>
+                </div>
+            </div>
+            <hr>
+            <h3>Plot</h3>
+            <p> {{movie.Plot}} </p>
+            <hr>
+
+            <h3>Actors</h3>
+            <p>{{movie.Actors}}</p>
+            <hr>
+
+            <button (click)='show()'>Show</button>
+        </mat-card>
+    </div>
+</div>
