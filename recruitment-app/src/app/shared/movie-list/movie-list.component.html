@@ -3,7 +3,7 @@
     <input matInput [(ngModel)]="searchedText">
 </mat-form-field>
 
-<button mat-raised-button (click)="show()">Show</button>
+<button mat-raised-button routerLink="../{{searchedText}}" (click)="show()">Show</button>
 
 
 <table mat-table [dataSource]="movieList.Search" class="mat-elevation-z8">
@@ -29,7 +29,7 @@
 <mat-paginator [length]="numberOfMovies"
               [pageSize]="10"
               [pageSizeOptions]="[10]"
-              aria-label="Select page"
+              class="mat-elevation-z8"
               (page)="onPageChange($event)">
 </mat-paginator>
 <hr>

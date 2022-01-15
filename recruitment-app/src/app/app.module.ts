@@ -18,6 +18,7 @@ import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './shared/layout/header/header.component';
 import { FooterComponent } from './shared/layout/footer/footer.component';
 import { LayoutPageComponent } from './shared/layout/layout-page/layout-page.component';
+import { WishlistComponent } from './shared/wishlist/wishlist.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { LayoutPageComponent } from './shared/layout/layout-page/layout-page.com
     MoviePageComponent,
     HeaderComponent,
     FooterComponent,
-    LayoutPageComponent
+    LayoutPageComponent,
+    WishlistComponent
   ],
   imports: [
     BrowserModule,

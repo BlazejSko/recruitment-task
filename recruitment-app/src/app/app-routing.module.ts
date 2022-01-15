@@ -2,11 +2,13 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MovieListComponent } from './shared/movie-list/movie-list.component';
 import { MoviePageComponent } from './shared/movie-list/movie-page/movie-page.component';
+import { WishlistComponent } from './shared/wishlist/wishlist.component';
 
 const routes: Routes = [
-  { path: 'movies', component: MovieListComponent, children: [
+  { path: 'movies/:searched', component: MovieListComponent, children: [
     { path: ':id', component: MoviePageComponent},
   ]},
+  { path: 'wishlist', component: WishlistComponent},
 ];
 
 @NgModule({

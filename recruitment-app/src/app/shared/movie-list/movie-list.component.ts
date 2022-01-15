@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 import { SharedService } from '../shared.service';
 
 @Component({
@@ -12,15 +12,18 @@ export class MovieListComponent implements OnInit {
 
   movieList: any = [];
   displayedColumns = ['Title', 'Year', 'Poster'];
-  searchedText: string = 'Star Wars';
-   numberOfMovies: number = 0;
+  searchedText!: string;
+  numberOfMovies: number = 0;
   pageNumber: number = 1;
 
   
-  constructor(private http: SharedService, private router: Router) { }
+  constructor(private http: SharedService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.refreshMovieList();
+    this.route.params.subscribe((params: Params)=>{
+      this.searchedText=params['searched'];
+      this.refreshMovieList();
+    });
   }
 
   refreshMovieList(){
