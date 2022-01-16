@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MovieListComponent } from './shared/movie-list/movie-list.component';
 
+import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatInputModule } from '@angular/material/input';
 import { MatPaginatorModule } from '@angular/material/paginator';
@@ -19,6 +20,7 @@ import { HeaderComponent } from './shared/layout/header/header.component';
 import { FooterComponent } from './shared/layout/footer/footer.component';
 import { LayoutPageComponent } from './shared/layout/layout-page/layout-page.component';
 import { WishlistComponent } from './shared/wishlist/wishlist.component';
+import { CookieService } from 'ngx-cookie-service';
 
 
 @NgModule({
@@ -37,6 +39,7 @@ import { WishlistComponent } from './shared/wishlist/wishlist.component';
     HttpClientModule,
     FormsModule,
 
+    MatListModule,
     MatToolbarModule,
     MatInputModule,
     MatPaginatorModule,
@@ -45,7 +48,9 @@ import { WishlistComponent } from './shared/wishlist/wishlist.component';
     MatTableModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [
+    CookieService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

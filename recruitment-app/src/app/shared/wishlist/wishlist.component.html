@@ -1,1 +1,22 @@
-<p>wishlist works!</p>
+
+<mat-card>
+    <div class="navbar">
+        <mat-form-field>
+            <mat-label>Add wish</mat-label>
+            <input matInput [(ngModel)]="wish">
+        </mat-form-field>
+        <button mat-raised-button (click)="addWish()">Add To List</button>
+    </div>
+
+    <hr>
+
+    <h2>Wishes:</h2>
+    <mat-list role="list" *ngFor="let wish of wishesList">
+        <mat-list-item >
+            {{ wish }}
+            <div class="spacer"></div>  
+            <button mat-raised-button (click)="deleteCookie(wish)">Done</button>
+        </mat-list-item>
+    </mat-list>
+
+</mat-card>
