@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -22,7 +22,6 @@ import { LayoutPageComponent } from './shared/layout/layout-page/layout-page.com
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { CookieService } from 'ngx-cookie-service';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +30,7 @@ import { CookieService } from 'ngx-cookie-service';
     HeaderComponent,
     FooterComponent,
     LayoutPageComponent,
-    WishlistComponent
+    WishlistComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,11 +45,9 @@ import { CookieService } from 'ngx-cookie-service';
     MatCardModule,
     MatButtonModule,
     MatTableModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
-  providers: [
-    CookieService
-  ],
-  bootstrap: [AppComponent]
+  providers: [CookieService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

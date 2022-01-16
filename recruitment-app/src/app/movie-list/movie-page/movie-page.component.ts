@@ -1,41 +1,31 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { SharedService } from '../../shared/shared.service';
+import { MoviesService } from 'src/app/movies.service';
 
 @Component({
   selector: 'app-movie-page',
   templateUrl: './movie-page.component.html',
-  styleUrls: ['./movie-page.component.scss']
+  styleUrls: ['./movie-page.component.scss'],
 })
 export class MoviePageComponent implements OnInit {
   movieId: string = '';
   movie: any = '';
 
   constructor(
-    private http: SharedService,
+    private moviesService: MoviesService,
     private route: ActivatedRoute
-    ) { }
+  ) {}
 
   ngOnInit(): void {
-    this.route.params
-      .subscribe(
-        (params: Params) => {
-          this.movieId = params['id'];
-          this.refreshMovie(params['id']);
-          console.log(params)
-        });
+    this.route.params.subscribe((params: Params) => {
+      this.movieId = params['id'];
+      this.refreshMovie(params['id']);
+    });
   }
 
-  refreshMovie(id: string){
-    this.http.getOneMovie(id).subscribe(data => {
+  refreshMovie(id: string) {
+    this.moviesService.getOneMovie(id).subscribe((data) => {
       this.movie = data;
-    })
-  }
-
-
-
-  show(){
-    console.log(this.movieId)
-    console.log(this.movie)
+    });
   }
 }

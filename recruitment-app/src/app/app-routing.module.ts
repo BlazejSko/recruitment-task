@@ -5,14 +5,16 @@ import { MoviePageComponent } from './movie-list/movie-page/movie-page.component
 import { WishlistComponent } from './wishlist/wishlist.component';
 
 const routes: Routes = [
-  { path: 'movies/:searched', component: MovieListComponent, children: [
-    { path: ':id', component: MoviePageComponent},
-  ]},
-  { path: 'wishlist', component: WishlistComponent},
+  {
+    path: 'movies/:searched',
+    component: MovieListComponent,
+    children: [{ path: ':id', component: MoviePageComponent }],
+  },
+  { path: 'wishlist', component: WishlistComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

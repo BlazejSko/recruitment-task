@@ -1,35 +1,38 @@
 import { Component, OnInit } from '@angular/core';
-import { SharedService } from '../shared/shared.service';
+import { WishlistService } from '../wishlist.service';
 
 @Component({
   selector: 'app-wishlist',
   templateUrl: './wishlist.component.html',
-  styleUrls: ['./wishlist.component.scss']
+  styleUrls: ['./wishlist.component.scss'],
 })
 export class WishlistComponent implements OnInit {
   wish: string = '';
   wishesList: string[] = [];
   wishesDoneList: string[] = [];
-  constructor(private cookieService: SharedService) { }
+  constructor(private wishlistService: WishlistService) {}
 
   ngOnInit(): void {
-    this.refreshCookies();
-    this.cookieService.subject.subscribe({
-      next: ()=> {
-        this.refreshCookies();
-      }
+    this.refreshWishes();
+    this.wishlistService.subject.subscribe({
+      next: () => {
+        this.refreshWishes();
+      },
     });
   }
 
-  addWish(){
-    this.cookieService.addWish(this.wish);
+  // ngOnDestroy() {
+  //   this.wishlistService.subject.unsubscribe();
+  // }
+
+  addWish() {
+    this.wishlistService.addWish(this.wish);
   }
-  deleteCookie(wish: string){
-    this.cookieService.deleteCookie(wish);
+  deleteWish(wish: string) {
+    this.wishlistService.deleteWish(wish);
   }
 
-  refreshCookies(){
-    this.wishesList = this.cookieService.getAllCookies();
+  refreshWishes() {
+    this.wishesList = this.wishlistService.getAllWishes();
   }
-
 }
