@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { SharedService } from '../../shared.service';
+import { SharedService } from '../../shared/shared.service';
 
 @Component({
   selector: 'app-movie-page',

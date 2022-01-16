@@ -15,12 +15,11 @@ export class SharedService {
   constructor(private http: HttpClient, private cookie: CookieService) { }
 
   getMovieList(){
-    return this.http.get(this.APIUrl)
-    // .pipe(map((data: any)=>data.Search));
+    return this.http.get(this.APIUrl);
   }
 
   getMovieSearchedList(text: string, page: number){
-    return this.http.get('https://www.omdbapi.com/?s=' + text + '&page=' + page + '&apikey=639b9b00')
+    return this.http.get('https://www.omdbapi.com/?s=' + text + '&page=' + page + '&apikey=639b9b00');
   }
 
   getOneMovie(id: string){
