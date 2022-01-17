@@ -1,3 +1,4 @@
+import { createOfflineCompileUrlResolver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -12,21 +13,18 @@ import { WishlistService } from '../wishlist.service';
 export class MovieListComponent implements OnInit {
   movieList: any = [];
   displayedColumns = ['Title', 'Year', 'Poster', 'Options'];
-  searchedText!: string;
+  searchedText: string = 'Star Wars';
   numberOfMovies = 0;
   pageNumber = 1;
 
   constructor(
     private moviesService: MoviesService,
-    private route: ActivatedRoute,
     private wishlistService: WishlistService
   ) {}
 
   ngOnInit(): void {
-    this.route.params.subscribe((params: Params) => {
-      this.searchedText = params['searched'];
-      this.refreshMovieList();
-    });
+    this.refreshMovieList();
+    this.wishlistService.getAllWishes();
   }
 
   refreshMovieList() {

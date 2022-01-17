@@ -20,11 +20,6 @@ export class WishlistComponent implements OnInit {
       },
     });
   }
-
-  // ngOnDestroy() {
-  //   this.wishlistService.subject.unsubscribe();
-  // }
-
   addWish() {
     this.wishlistService.addWish(this.wish);
   }
